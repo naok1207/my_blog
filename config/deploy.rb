@@ -27,38 +27,38 @@ set :rbenv_ruby, '2.6.3'
 set :log_level, :debug
 
 # デプロイの手順の設定（Rails6からyarnインストールが必要に）
-# namespace :deploy do
-#   desc 'Restart application'
-#   task :restart do
-#     invoke 'unicorn:restart'
-#   end
+namespace :deploy do
+  desc 'Restart application'
+  task :restart do
+    invoke 'unicorn:restart'
+  end
 
-#   desc 'Create database'
-#   task :db_create do
-#     on roles(:db) do |host|
-#       with rails_env: fetch(:rails_env) do
-#         within current_path do
-#           execute :bundle, :exec, :rake, 'db:create'
-#         end
-#       end
-#     end
-#   end
-# before "deploy:assets:precompile", "deploy:yarn_install"
-# namespace :deploy do
-#   desc "Run rake yarn install"
-#   task :yarn_install do
-#     on roles(:web) do
-#       within release_path do
-#         execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
-#       end
-#     end
-#   end
-# end
+  desc 'Create database'
+  task :db_create do
+    on roles(:db) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:create'
+        end
+      end
+    end
+  end
+before "deploy:assets:precompile", "deploy:yarn_install"
+namespace :deploy do
+  desc "Run rake yarn install"
+  task :yarn_install do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+      end
+    end
+  end
+end
 
-#   after :publishing, :restart
+  after :publishing, :restart
 
-#   after :restart, :clear_cache do
-#     on roles(:web), in: :groups, limit: 3, wait: 10 do
-#     end
-#   end
-# end
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
+  end
+end
