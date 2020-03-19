@@ -6,7 +6,7 @@ set :application, "my_blog"
 set :repo_url, "git@github.com:naok1207/my_blog.git"
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, 'master'
+# set :branch, 'master'
 
 # デプロイをするフォルダの指定
 set :deploy_to, "/var/www/rails/my_blog"
