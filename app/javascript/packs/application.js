@@ -19,4 +19,4 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 
-import '../stylesheets/application'
+// import '../stylesheets/application'
