@@ -1,0 +1,9 @@
+<%= form_for(@post) do |f| %>
+    <%= f.label title %>
+    <%= f.text_field :title %>
+    
+    <div class="field">
+        <%= f.label :content %>
+        <%= f.rich_text_area :content %>
+    </div>
+<% end %>
