@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="p-item">
+    <div class="p-item_wrapper">
+        <div class="p-item_container">
+            <div class="p-item_main">
+                <%= render @posts %>
+                <%= will_paginate @posts, previous_label: '&lt', next_label: '&gt', inner_window: 1, outer_window: 0 %>
+            </div>
+            <div class="p-item_ad">
+            </div>
+            <div class="p-item_side">
+            </div>
+        </div>
+    </div>
+</div>

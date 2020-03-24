@@ -1,0 +1,14 @@
+<header>
+    <div class="header-logo"><%= link_to $APP_NAME, posts_path, class: "h-logo" %></div>
+    <a class="menu-trigger" href="#" data-turbolinks="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <ul class="drop">
+        <div>
+            <li><%= link_to '記事投稿', new_post_path, class: 'h-link' %></li>
+            <li><%= link_to '記事一覧', posts_path, class: 'h-link' %></li>
+        </div>
+    </ul>
+</header>

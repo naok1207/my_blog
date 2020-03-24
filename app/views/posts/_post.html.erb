@@ -1,0 +1,9 @@
+<%= link_to post, class: 'p-index_show-link' do %>
+    <div class="p-index">
+        <%= post.title %>
+        <blockquote>
+            <%= post.content %>
+        </blockquote>
+        <%= link_to '編集', edit_post_path(post), class: 'p-index_edit' %>
+    </div>
+<% end %>

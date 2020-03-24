@@ -1,11 +1,10 @@
 <%= form_for(@post) do |f| %>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'f_item' %>
     
     <div class="field">
-        <%= f.label :content %>
-        <%= f.rich_text_area :content %>
+        <%= f.rich_text_area :content, class: 'f_item f_content' %>
     </div>
 
-    <%= f.submit '追加' %>
+    <%= f.submit '追加', class: 'f_submit' %>
 <% end %>
