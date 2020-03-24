@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+@import '_normalize';
+@import '_hambergar';
+@import '_dropdown';
+
+$h-height: 80px;
+header {
+    background-color: rgb(77, 77, 77);
+    color: #ffffff;
+    height: $h-height;
+    a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    .header-logo {
+        text-align: center;
+        line-height: $h-height;
+        .h-logo {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: cursive;
+        }
+    }
+    .menu-trigger {
+        position: absolute;
+        width: 50px;
+        height: 44px;
+        transform: scale(0.7, 0.7);
+        top: 20px;
+        right: 20px;
+    }
+}
+
+footer {
+
+}
