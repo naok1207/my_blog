@@ -1,3 +1,5 @@
+@import 'const';
+
 .p-item {
     .p-item_wrapper {
         .p-item_container {
@@ -31,11 +33,48 @@
     }
 }
 
+.p-index_show-link {
+    text-decoration: none;
+}
 .p-index {
     border: 1px solid lightgrey;
     box-shadow: 4px 4px 4px lightgrey;
-    // filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
     padding: 10px;
     margin-bottom: 30px;
     margin-right: 40px;
+    color: black;
+    background-color: white;
+    &:hover {
+        @include transform(translate(-2px,-2px));
+        filter: drop-shadow(6px 6px 6px rgba(0,0,0,0.6));
+        @include transition(all 0.5 0.5);
+        box-shadow: 6px 6px 6px lightgrey;
+    }
+    .p-index_edit {
+        margin-left: 95%;
+        width: 100px;
+    }
+}
+
+.p-new, .p-edit {
+    .p-new_wrapper, .p-edit_wrapper {
+        max-width: 1280px;
+        margin: 0 auto;
+        .p-new_container, .p-edit_container {
+            width: 980px;
+            margin: 50px auto;
+        }
+    }
+}
+
+form {
+    .f_item {
+        margin-bottom: 30px;
+    }
+    .f_content {
+        min-height: 400px;
+    }
+    .f_submit {
+
+    }
 }
