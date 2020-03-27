@@ -1,0 +1,5 @@
+<%= form_with(url:{controller: 'posts', action: 'order'}, method: :get, remote: true) do |f| %>
+    <%= f.hidden_field :how, value: how %>
+    <%= f.hidden_field :order, value: order %>
+    <%= f.submit str %>
+<% end %>

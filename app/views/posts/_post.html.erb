@@ -4,6 +4,7 @@
         <blockquote>
             <%= post.content %>
         </blockquote>
+        <%= "#{post.access_counter} View" %>
         <%= link_to '編集', edit_post_path(post), class: 'p-index_edit' %>
     </div>
 <% end %>

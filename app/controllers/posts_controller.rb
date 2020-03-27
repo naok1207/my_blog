@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 10)
+    @posts = Post.paginate(page: params[:page], per_page: 10).order(:created_at => :desc)
   end
 
   def show
     @post = Post.find(params[:id])
+    add_count @post
   end
 
   def new
@@ -36,8 +37,18 @@ class PostsController < ApplicationController
   def delete
   end
 
+  def order
+    how = params[:how].to_sym
+    direction = params[:order].to_sym
+    @posts = Post.paginate(page: params[:page], per_page: 10).order(how => direction)
+  end
+
   private
     def post_params
       params.require(:post).permit(:title, :content)
+    end
+
+    def add_count(post)
+      post.update_attributes(access_counter: post.access_counter + 1)
     end
 end

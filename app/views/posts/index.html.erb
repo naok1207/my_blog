@@ -2,7 +2,12 @@
     <div class="p-item_wrapper">
         <div class="p-item_container">
             <div class="p-item_main">
-                <%= render @posts %>
+                <%= render 'arrenge_form', {how: 'access_counter', order: 'desc', str: '閲覧回数順'} %>
+                <%= render 'arrenge_form', {how: 'created_at', order: 'asc', str: '投稿昇順'} %>
+                <%= render 'arrenge_form', {how: 'created_at', order: 'desc', str: '投稿降順'} %>
+                <div id="post_index">
+                    <%= render @posts %>
+                </div>
                 <%= will_paginate @posts, previous_label: '&lt', next_label: '&gt', inner_window: 1, outer_window: 0 %>
             </div>
             <div class="p-item_ad">
