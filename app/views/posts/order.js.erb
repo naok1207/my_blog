@@ -1,1 +1,1 @@
-$('#post_index').html('<%= j(render @posts) %>');
+$('#post_index').html('<%= j(render partial: "post", collection: @posts) %>');

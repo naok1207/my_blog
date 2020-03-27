@@ -11,8 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= @fortawesome/fontawesome-free
  *= require_self
  */
+ 
 @import '_normalize';
 @import '_hambergar';
 @import '_dropdown';

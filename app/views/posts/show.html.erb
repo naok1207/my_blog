@@ -2,8 +2,22 @@
     <div class="p-item_wrapper">
         <div class="p-item_container">
             <div class="p-item_main bg-gray">
-                <h1>main area</h1>
-                <%= @post.content %>
+                <h2><%= @post.title %></h2>
+                <div class="p-item_content">
+                    <%= @post.content %>
+                </div>
+                <div class="c-container">
+                    <h4><i class="far fa-comments"></i> コメント</h4>
+                    <div class="c-index">
+                        <% if !@comments[0].content.nil?  %>
+                            <%= render @comments %>
+                        <% else %>
+                            <p>この記事にコメントはありません。</p>
+                        <% end %>
+                    </div>
+                    <h4>コメントを投稿する</h4>
+                    <%= render 'comments/form' %>
+                </div>
             </div>
             <div class="p-item_ad bg-black">
                 ad

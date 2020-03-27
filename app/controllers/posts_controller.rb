@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     add_count @post
+    @comments = @post.comments
+    @comment = @post.comments.build # こいつのせいでからのコメントが表示される
   end
 
   def new
@@ -34,7 +36,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
   end
 
   def order

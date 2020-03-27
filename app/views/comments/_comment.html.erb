@@ -1,0 +1,6 @@
+<% if !comment.content.nil? %>
+<div class="c-item">
+    <%= comment.content %>
+    <%= link_to '削除', [@post, comment], method: :delete, data: { confirm: "You sure?" } %>
+</div>
+<% end %>
