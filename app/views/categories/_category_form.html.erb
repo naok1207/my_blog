@@ -1,0 +1,6 @@
+<%= form_with(model: @category, method: :post, remote: true) do |f| %>
+    <p>
+        <%= f.text_field :name %>
+        <%= f.submit '追加' %>
+    </p>
+<% end %>

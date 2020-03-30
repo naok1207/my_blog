@@ -12,6 +12,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @category = Category.new
+    @categories = []
   end
 
   def create
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @categories = @post.categories
   end
 
   def update
@@ -47,7 +50,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, category_ids: [])
     end
 
     def add_count(post)

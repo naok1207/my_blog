@@ -1,4 +1,6 @@
 <%= form_for(@post) do |f| %>
+    
+
     <%= f.label :title %>
     <%= f.text_field :title, class: 'f_item' %>
     
@@ -6,5 +8,10 @@
         <%= f.rich_text_area :content, class: 'f_item f_content' %>
     </div>
 
+    <div id="category-list">
+        <%= render @categories %>
+    </div>
+
     <%= f.submit '追加', class: 'f_submit' %>
 <% end %>
+<%= render 'categories/category_form' %>

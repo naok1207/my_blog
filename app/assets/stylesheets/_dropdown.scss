@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     div {
-        height: 80px;
+        height: 120px;
         @include transform(translate(10%,-100%));
         @include transition(all 0.5s 0.1s);
     }
@@ -26,9 +26,11 @@
         }
     }
 }
-.drop.active div {
-    @include transform(translate(0,0));
-    .h-link {
-        @include transform(scale(1, 1));
+.drop.active {
+    div {
+        @include transform(translate(0,0));
+        .h-link {
+            @include transform(scale(1, 1));
+        }
     }
 }

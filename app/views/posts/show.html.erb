@@ -3,6 +3,9 @@
         <div class="p-item_container">
             <div class="p-item_main bg-gray">
                 <h2><%= @post.title %></h2>
+                <% @post.categories.each do |category| %>
+                    <i><%= category.name %></i>
+                <% end %>
                 <div class="p-item_content">
                     <%= @post.content %>
                 </div>
