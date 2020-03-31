@@ -1,33 +1,20 @@
-<div class="p-item">
-    <div class="p-item_wrapper">
-        <div class="p-item_container">
-            <div class="p-item_main bg-gray">
-                <h2><%= @post.title %></h2>
-                <% @post.categories.each do |category| %>
-                    <i><%= category.name %></i>
-                <% end %>
-                <div class="p-item_content">
-                    <%= @post.content %>
-                </div>
-                <div class="c-container">
-                    <h4><i class="far fa-comments"></i> コメント</h4>
-                    <div class="c-index">
-                        <% if !@comments[0].content.nil?  %>
-                            <%= render @comments %>
-                        <% else %>
-                            <p>この記事にコメントはありません。</p>
-                        <% end %>
-                    </div>
-                    <h4>コメントを投稿する</h4>
-                    <%= render 'comments/form' %>
-                </div>
-            </div>
-            <div class="p-item_ad bg-black">
-                ad
-            </div>
-            <div class="p-item_side bg-blue">
-                <h2>side area</h2>
-            </div>
-        </div>
+<h2><%= @post.title %></h2>
+<%= link_to '編集', edit_post_path(@post), class: 'p-index_edit' %>
+<% @post.categories.each do |category| %>
+    <i><%= category.name %></i>
+<% end %>
+<div class="p-item_content">
+    <%= @post.content %>
+</div>
+<div class="c-container">
+    <h4><i class="far fa-comments"></i> コメント</h4>
+    <div class="c-index">
+        <% if !@comments[0].content.nil?  %>
+            <%= render @comments %>
+        <% else %>
+            <p>この記事にコメントはありません。</p>
+        <% end %>
     </div>
+    <h4>コメントを投稿する</h4>
+    <%= render 'comments/form' %>
 </div>

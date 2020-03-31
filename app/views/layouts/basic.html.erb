@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyBlog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="p-item">
+        <div class="p-item_wrapper">
+            <div class="p-item_container">
+                <div class="p-item_main bg-gray">
+                    <%= yield %>
+                </div>
+                <div class="p-item_ad bg-black">
+                </div>
+                <div class="p-item_side bg-blue">
+                    <h2>side area</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

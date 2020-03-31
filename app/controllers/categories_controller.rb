@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
+  layout 'basic', only: [:index, :show]
+
   def create
-    unless Category.find_by(name: params[:category][:name])
+    if @category = Category.find_by(name: params[:category][:name])
+    else
       @category = Category.new(category_params)
       @category.save
     end
@@ -9,13 +12,30 @@ class CategoriesController < ApplicationController
   def destroy
     @category_id = params[:id]
     category = Category.find(params[:id])
-    if category.posts.size < 2
+    if category.posts.empty?
       category.destroy
     end
   end
 
   def index
     @categories = Category.all
+  end
+
+  def show
+    @category = Category.find(params[:id])
+    @posts = @category.posts.paginate(page: params[:page], per_page: 10)
+  end
+
+  def order
+    how = params[:how].to_sym
+    direction = params[:order].to_sym
+    category = Category.find(params[:id])
+    @posts = category.posts.paginate(page: params[:page], per_page: 10).order(how => direction)
+  end
+
+  def serch
+    serch_text = params[:serch_text]
+    @categories = Category.search(serch_text).paginate(page: params[:page], per_page: 10)
   end
 
   private

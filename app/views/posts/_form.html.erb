@@ -9,9 +9,9 @@
     </div>
 
     <div id="category-list">
-        <%= render @categories %>
+        <%= render partial: 'category', collection: @categories %>
     </div>
 
-    <%= f.submit '追加', class: 'f_submit' %>
+    <%= f.submit yield(:submit_posts_text), class: 'f_submit' %>
 <% end %>
 <%= render 'categories/category_form' %>

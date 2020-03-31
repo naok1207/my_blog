@@ -5,4 +5,9 @@ class Post < ApplicationRecord
 
     has_many :post_category_relations
     has_many :categories, through: :post_category_relations
+
+    def self.search(search)
+        return Post.all unless search
+        Post.where(['content LIKE ?', "%#{search}%"])
+    end
 end
