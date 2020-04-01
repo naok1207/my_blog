@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   layout 'basic', only: [:index, :show]
+  before_action :check_ip, only: [:show, :index]
 
   def index
     @posts = Post.paginate(page: params[:page], per_page: 10).order(:created_at => :desc)
@@ -7,7 +8,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    add_count @post
+    add_count @post if check_access(@post.id)
+    log_access(@post.id)
     @comments = @post.comments
     @comment = @post.comments.build # こいつのせいでからのコメントが表示される
   end
