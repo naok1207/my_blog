@@ -23,3 +23,10 @@ Post.create!(
         content: "ブログって難しいぜ....<br /> 何も思いつかねぇ..."
     )
 end
+
+User.create!(
+    name: 'admin',
+    email: '',
+    password: '0000',
+    password_confirmation: '0000'
+)

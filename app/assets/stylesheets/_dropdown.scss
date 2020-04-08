@@ -9,7 +9,6 @@
     margin: 0;
     padding: 0;
     div {
-        height: 120px;
         @include transform(translate(10%,-100%));
         @include transition(all 0.5s 0.1s);
     }

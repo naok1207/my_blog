@@ -7,9 +7,13 @@
     </a>
     <ul class="drop">
         <div>
-            <li><%= link_to '記事投稿', new_post_path, class: 'h-link' %></li>
+            <li><%= link_to '管理者ページ', admin_path(id: 1), class: 'h-link' %>
             <li><%= link_to '記事一覧', posts_path, class: 'h-link' %></li>
             <li><%= link_to 'タグ一覧', categories_path, class: 'h-link' %></li>
+            <% if admin? %>
+            <li><%= link_to '記事投稿', new_post_path, class: 'h-link' %></li>
+            <li><%= link_to 'ログアウト', admin_path(id: 1), method: :delete, class: 'h-link' %></li>
+            <% end %>
         </div>
     </ul>
 </header>

@@ -1,0 +1,9 @@
+<%= form_for(:session, url: admin_index_path) do |f| %>
+
+    a:
+    <%= f.email_field :email %>
+    b:
+    <%= f.password_field :password %>
+
+    <%= f.submit "c" %>
+<% end %>

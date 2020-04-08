@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+    <p><%= link_to "#{post.id}, #{post.title}, #{post.access_counter}", post %></p>
+<% end %>
+
+<%= link_to "ログアウト", admin_path, method: :delete %>
